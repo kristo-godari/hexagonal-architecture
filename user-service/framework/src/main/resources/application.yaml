@@ -1,0 +1,24 @@
+user-service:
+  external-services:
+    req-rest:
+      url: https://reqres.in
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka1
+          defaultBrokerPort: 19092
+          autoCreateTopics: true
+      bindings:
+        createUserConsumer:
+          destination: my-topic
+          group: my-consumer-group

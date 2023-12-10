@@ -1,0 +1,1 @@
+This module is meant to contain contract tests. But contract testing is not the purpose of this demo project. 

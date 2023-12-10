@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.godari</groupId>
+    <artifactId>hexagonal-architecture</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.godari.hexagonal-architecture</groupId>
+  <artifactId>framework</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>Framework</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture</groupId>
+      <artifactId>common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture</groupId>
+      <artifactId>domain</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture</groupId>
+      <artifactId>port</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+      <artifactId>web-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+      <artifactId>websocket-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+      <artifactId>schdeduler-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+      <artifactId>inbound-kafka-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+      <artifactId>postgres-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+      <artifactId>external-users-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+      <artifactId>outbound-kafka-adapter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webflux</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

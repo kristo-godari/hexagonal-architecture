@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.godari</groupId>
+  <artifactId>hexagonal-architecture</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+      <maven.compiler.source>19</maven.compiler.source>
+      <maven.compiler.target>19</maven.compiler.target>
+  </properties>
+  <name>Hexagonal Architecture Project</name>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>user-service/application/common</module>
+    <module>user-service/application/domain</module>
+    <module>user-service/application/port</module>
+
+    <module>user-service/application/adapter/in/web-adapter</module>
+    <module>user-service/application/adapter/in/scheduler-adapter</module>
+    <module>user-service/application/adapter/in/inbound-kafka-adapter</module>
+    <module>user-service/application/adapter/in/websocket-adapter</module>
+
+    <module>user-service/application/adapter/out/postgres-adapter</module>
+    <module>user-service/application/adapter/out/external-users-adapter</module>
+    <module>user-service/application/adapter/out/outbound-kafka-adapter</module>
+
+    <module>user-service/framework</module>
+
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- internal dependencies -->
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture</groupId>
+        <artifactId>common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture</groupId>
+        <artifactId>domain</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture</groupId>
+        <artifactId>port</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+        <artifactId>web-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+        <artifactId>websocket-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+        <artifactId>schdeduler-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.in</groupId>
+        <artifactId>inbound-kafka-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+        <artifactId>postgres-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+        <artifactId>external-users-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>org.godari.hexagonal-architecture.adapter.out</groupId>
+        <artifactId>outbound-kafka-adapter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+      <!-- external dependencies -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>3.1.5</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-stream-dependencies</artifactId>
+        <version>3.1.5</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>1.5.5.Final</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>1.5.5.Final</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+              <annotationProcessorPaths>
+                <path>
+                  <groupId>org.projectlombok</groupId>
+                  <artifactId>lombok</artifactId>
+                  <version>1.18.30</version>
+                </path>
+                <path>
+                  <groupId>org.mapstruct</groupId>
+                  <artifactId>mapstruct-processor</artifactId>
+                  <version>1.5.5.Final</version>
+                </path>
+              </annotationProcessorPaths>
+            </configuration>
+          </plugin>
+        </plugins>
+    </pluginManagement>
+  </build>
+</project>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #responseSection {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        #responseSection h3 {
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+        #responseSection pre {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="form-group">
+        <label for="wsUrl">WebSocket URL:</label>
+        <input type="text" id="wsUrl" value="ws://localhost:8080/user-service-ws">
+    </div>
+    <div class="form-group">
+        <button id="connectWs">Connect</button>
+    </div>
+    <div id="connectionStatus"></div>
+    <div class="form-group">
+        <button id="getAllUsers">Get All Users</button>
+    </div>
+    <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId">
+    </div>
+    <div class="form-group">
+        <button id="getUser" >Get User</button>
+        <button id="deleteUser">Delete User</button>
+    </div>
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName">
+    </div>
+    <div class="form-group">
+        <button id="createUser">Create User</button>
+    </div>
+
+    <div id="responseSection">
+        <h3>Response:</h3>
+        <pre id="response"></pre>
+    </div>
+</div>
+</body>
+</html>
